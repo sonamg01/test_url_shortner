@@ -10,8 +10,8 @@
     </div>
 </div>
 
-<a href="/" class="btn btn-success">Create Another</a>
-<a href="/links" class="btn btn-info">View All Links</a>
+<a href="/" class="btn btn-success mt-2">Create Another</a>
+<a href="/links" class="btn btn-info mt-2">View All Links</a>
 
 <script>
     function copyToClipboard() {

@@ -3,7 +3,10 @@
 @section('content')
 
 <div class="card p-4">
-    <h2>Your Shorted Link </h2>
+    <div class="d-flex justify-content-between align-items-end mb-3">
+    <h2 >Your Shorted Link </h2>
+    <a href="/" class="btn btn-success mt-4">Create Another</a>
+    </div>
     @if (session('message'))
 
     <div class="alert alert-success">{{ session('message') }}</div>
@@ -33,16 +36,16 @@
 
                 <td>{{ $link-> expires_at }}</td>
                 <td>{{ $link->status ? 'Inactive' : 'Active' }}</td>
-                <td>
+                <td class="d-flex ">
                     <a href="{{ route('links.edit', $link->id) }}" class="btn btn-success">Edit</a>
                     <form action="{{ route('links.destroy', $link->id) }}" method="post" onsubmit="return confirm('Are Your Sure To Delete?')">
                         @csrf
                         @method('DELETE')
-                        <button class="btn btn-danger"> Delete</button>
+                        <button class="btn btn-danger ms-2"> Delete</button>
                     </form>
                     <form action="{{ route('links.toggleStutas', $link->id) }}" method="post" style="display: inline;">
                         @csrf
-                        <button class="btn btn-info" type="submit">{{ $link->status ? 'Active' : 'Inactive' }}</button>
+                        <button class="btn btn-info ms-2" type="submit">{{ $link->status ? 'Active' : 'Inactive' }}</button>
                     </form>
                 </td>
             </tr>
@@ -52,7 +55,6 @@
     </table>
 </div>
 
-<a href="/" class="btn btn-success">Create Another</a>
 
 
 
